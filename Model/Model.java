@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class Model {
+public class Model {//Model is not accurate name
 
     private static final List<MathematicalOperations> listOperation = new ArrayList<>();
     private static final List<Factorial> listFactorial = new ArrayList<>();
@@ -33,7 +33,7 @@ public class Model {
     }
 
     public void calculate() throws ExecutionException, InterruptedException {
-        ExecutorService executorService1 = Executors.newCachedThreadPool();
+        ExecutorService executorService1 = Executors.newCachedThreadPool();//better to check if listOperation is not empty and after execute
         for(var elem : listOperation){
             if(elem instanceof Sum){
                 System.out.println("Сумма чисел: " + elem.getDoubleList() + " равна " + executorService1.submit(elem).get());
@@ -43,7 +43,7 @@ public class Model {
                 System.out.println("Произведение чисел " + elem.getDoubleList() + " равно " + executorService1.submit(elem).get());
             }
         }
-        ExecutorService executorService2 = Executors.newCachedThreadPool();
+        ExecutorService executorService2 = Executors.newCachedThreadPool();//better to check if listFactorial is not empty and after execute
         for (var elem : listFactorial){
             try {
                 System.out.println("Факториал числа " + elem.getValue() + " равен " + executorService2.submit(elem).get());
