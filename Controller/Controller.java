@@ -26,7 +26,7 @@ public class Controller {
                 }
                 break;
             }
-            switch (command){
+            switch (command){//enums fits better than digits
                 case 1:{
                     model.addSum(view.sum());
                     break;
